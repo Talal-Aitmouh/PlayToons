@@ -36,7 +36,7 @@ function HomePage() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -66,7 +66,7 @@ function HomePage() {
   
 
   return (
-    <div className="min-h-screen text-white px-4" style={{ background: 'linear-gradient(to bottom, #1E1E1E, #3D3B49)' }}>
+    <div className="min-h-screen text-white px-8" style={{ background: 'linear-gradient(to bottom, #1E1E1E, #3D3B49)' }}>
       {/* Hero Section */}
       {featured.length > 0 && (
         <Slider {...heroSettings}>
@@ -142,7 +142,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const CustomPrevArrow = ({ onClick }) => (
   <div
-    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-xl cursor-pointer"
+    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-xl cursor-pointer z-10"
     onClick={onClick}
   >
     <ChevronLeftIcon />
@@ -151,7 +151,7 @@ const CustomPrevArrow = ({ onClick }) => (
 
 const CustomNextArrow = ({ onClick }) => (
   <div
-    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-xl cursor-pointer"
+    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-xl cursor-pointer z-10"
     onClick={onClick}
   >
     <ChevronRightIcon />
