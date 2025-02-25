@@ -2,12 +2,17 @@ import { Link } from "react-router-dom";
 
 function Navigation() {
   return (
-    <nav className="flex items-center justify-between p-4 bg-[#1E1E1E]">
+    <nav className="flex items-center justify-between px-8 py-4 bg-[#1E1E1E]">
       <div className="flex items-center gap-8">
         <img src="/logo.png" alt="Logo" className="w-full h-16" />
         
-
-        <div className="relative">
+        <div className="flex gap-6 text-gray-300">
+          <Link to="/" className="hover:text-white transition-colors">Home</Link>
+          <Link to="/movies" className="hover:text-white transition-colors">Movies</Link>
+          <Link to="/series" className="hover:text-white transition-colors">Series</Link>
+        </div>
+      </div>
+      <div className="relative">
           <input
             type="text"
             placeholder="Search"
@@ -15,15 +20,8 @@ function Navigation() {
           />
         </div>
 
-        <div className="flex gap-6 text-gray-300">
-          <Link to="/" className="hover:text-white transition-colors">Home</Link>
-          <Link to="/movies" className="hover:text-white transition-colors">Movies</Link>
-          <Link to="/series" className="hover:text-white transition-colors">Series</Link>
-        </div>
-      </div>
-
-      <div className="flex items-center gap-3 pr-6">
-        <div className="w-8 h-8 rounded-full bg-gray-700" />
+      <div className="flex items-center gap-3">
+        <img src="/avatar.png" alt="Avatar" className="w-8 h-8 rounded-full" />
         <span className="text-gray-300">Talal</span>
       </div>
     </nav>
