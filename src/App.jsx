@@ -9,7 +9,7 @@ import MoviesPage from "./MoviesPage";
 function App() {
   return (
     <Router>
-      <div style={{ background: 'linear-gradient(to bottom, #1E1E1E, #3D3B49)' }}>
+      <div className="background">
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />

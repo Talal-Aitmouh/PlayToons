@@ -44,7 +44,7 @@ function Playlist() {
             />
             <div>
               <h3 className="font-medium text-white">{item.titre}</h3>
-              <p className="text-sm text-gray-400 mt-1">{item.videos.length} videos</p>
+              <p className="text-sm text-gray-400 mt-1">{item.videos.length} Episodes</p>
             </div>
           </motion.div>
         ))}

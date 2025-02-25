@@ -127,7 +127,7 @@ export const data = [
         ]
     },
     {
-        "idPlaylist": 5,
+        "idPlaylist": 3,
         "titre": "Tom & Jerry",
         "miniature": "https://media.senscritique.com/media/000006478417/0/tom_et_jerry.jpg",
         "genre": "serie",
@@ -231,7 +231,7 @@ export const data = [
         ]
     },
     {
-        "idPlaylist": 3,
+        "idPlaylist": 5,
         "titre": "Angelo la Débrouille",
         "miniature": "https://images.justwatch.com/poster/215601995/s718/angelo-rules.jpg",
         "genre": "serie",
@@ -283,7 +283,7 @@ export const data = [
         ]
     },
     {
-        "idPlaylist": 4,
+        "idPlaylist": 6,
         "titre": "DuckTales",
         "miniature": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/wiiu_download_software_5/SI_WiiUDS_DuckTalesRemastered_image1600w.jpg",
         "genre": "movie",
@@ -314,7 +314,7 @@ export const data = [
         ]
     },
     {
-        "idPlaylist": 5,
+        "idPlaylist": 7,
         "titre": "Toy Story",
         "miniature": "https://www.lejdd.fr/lmnr/var/jdd/public/media/image/2022/07/21/17/comment-toy-story-a-revolutionne-le-cinema-d-animation.jpg?VersionId=K7dq.ECj8_q_xzGLmkMJKveayPHkdcSW",
         "genre": "movie",
@@ -345,7 +345,7 @@ export const data = [
         ]
     },
     {
-        "idPlaylist": 6,
+        "idPlaylist": 8,
         "titre": "The Incredibles",
         "miniature": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/920954E93FA8656169D52FCC44420DF0254CD22B1940D9134BC0D7616292BEDA/scale?width=506&aspectRatio=2.00&format=webp",
         "genre": "movie",
@@ -376,7 +376,7 @@ export const data = [
         ]
     },
     {
-        "idPlaylist": 7,
+        "idPlaylist": 9,
         "titre": "Shrek",
         "miniature": "https://m1.quebecormedia.com/emp/emp/shrek.0e29f919d-0890-4c6a-aa8e-908f615748b7_ORIGINAL.jpg?impolicy=crop-resize&x=0&y=62&w=1200&h=675&width=1200",
         "genre": "movie",
@@ -407,7 +407,7 @@ export const data = [
         ]
     },
     {
-        "idPlaylist": 8,
+        "idPlaylist": 10,
         "titre": "Finding Nemo",
         "miniature": "https://www.firststage.org/get/files/image/galleries/Nemo-Home.jpg",
         "genre": "movie",
@@ -438,7 +438,7 @@ export const data = [
         ]
     },
     {
-        "idPlaylist": 9,
+        "idPlaylist": 11,
         "titre": "Frozen",
         "miniature": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/BFFC561B156453B0B7F4A76E05313E4E1D7F910A3287A61D77FA85C3D5F4847B/scale?width=1200&aspectRatio=1.78&format=webp",
         "genre": "movie",
@@ -469,7 +469,7 @@ export const data = [
         ]
     },
     {
-        "idPlaylist": 10,
+        "idPlaylist": 12,
         "titre": "Zootopia",
         "miniature": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/7ABE4CDAC4A8E0314618225C03A65DF6056EF2770E90E0AFEB3C76020A59B1C4/scale?width=1200&aspectRatio=1.78&format=webp",
         "genre": "movie",
@@ -500,7 +500,7 @@ export const data = [
         ]
     },
     {
-        "idPlaylist": 11,
+        "idPlaylist": 13,
         "titre": "Coco",
         "miniature": "https://www.catholique78.fr/wp-content/uploads/2019/02/affiche-coco-pixar-disney-1-800x362.jpg",
         "genre": "movie",

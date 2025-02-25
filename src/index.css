@@ -2,10 +2,17 @@
 
 .scrollbar-hidden::-webkit-scrollbar {
     display: none;
-  }
-  
-  .scrollbar-hidden {
+}
+
+.scrollbar-hidden {
     -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
     scrollbar-width: none; /* Hide scrollbar for Firefox */
-  }
-  
+}
+
+.background {
+    background: linear-gradient(to bottom, rgba(30, 30, 30, 1), rgba(61, 59, 73, 0.8)), url('/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Make the background fixed */
+    
+}

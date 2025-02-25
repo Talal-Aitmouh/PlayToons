@@ -16,7 +16,7 @@ function SeriesPage() {
   };
 
   return (
-    <div className="min-h-screen text-white px-4 py-8" style={{ background: 'linear-gradient(to bottom, #1E1E1E, #3D3B49)' }}>
+    <div className="min-h-screen text-white px-4 py-8">
       <h1 className="text-2xl font-bold mb-6">All Series</h1>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

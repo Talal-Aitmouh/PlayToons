@@ -66,7 +66,7 @@ function HomePage() {
   
 
   return (
-    <div className="min-h-screen text-white px-8" style={{ background: 'linear-gradient(to bottom, #1E1E1E, #3D3B49)' }}>
+    <div className="min-h-screen text-white px-8" >
       {/* Hero Section */}
       {featured.length > 0 && (
         <Slider {...heroSettings}>
