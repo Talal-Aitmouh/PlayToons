@@ -10,9 +10,10 @@
 }
 
 .background {
-    background: linear-gradient(to bottom, rgba(30, 30, 30, 1), rgba(61, 59, 73, 0.8)), url('/bg.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Make the background fixed */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.925), rgba(0, 0, 0, 0.911)), url('/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+    
     
 }

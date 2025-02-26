@@ -10,6 +10,10 @@ function MoviesPage() {
     // Filter playlists with genre "serie"
     const moviesData = data.filter((playlist) => playlist.genre === "movie");
   
+    const handlePlaylistSelect = (playlistId) => {
+      dispatch(setselectedPlaylist(playlistId));
+      navigate(`/play/${playlistId}`);  // Navigate to Player with playlistId
+    };
     
     return (
         <div className="min-h-screen text-white px-4 py-8" >

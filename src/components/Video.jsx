@@ -57,7 +57,7 @@ function VideoPlayer() {
             <div className="flex items-center gap-4">
               <button
                 onClick={handleOpenComments}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer"
               >
                 <MessageCircle size={20} />
                 <span>{videoToShow.commentaires.length}</span>

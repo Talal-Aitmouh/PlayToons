@@ -25,7 +25,7 @@ function Playlist() {
       <h2 className="text-xl text-white font-bold mb-6">More Toons</h2>
 
       {/* Unified Div for Playlists */}
-      <div className={`mt-4 max-h-56 overflow-y-auto space-y-4 scrollbar-hidden overflow-x-hidden p-4`}>
+      <div className={`mt-4 max-h-96 overflow-y-auto space-y-4 scrollbar-hidden overflow-x-hidden p-4`}>
         {(showAll ? data : data.slice(0, 2)).map((item, index) => (
           <motion.div
             key={index}
@@ -40,7 +40,7 @@ function Playlist() {
             <img
               src={item.miniature}
               alt=""
-              className="w-16 h-16 rounded-lg mr-4"
+              className="w-32 h-20 rounded-lg mr-4"
             />
             <div>
               <h3 className="font-medium text-white">{item.titre}</h3>

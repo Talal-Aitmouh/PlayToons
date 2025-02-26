@@ -40,7 +40,6 @@ function Player() {
         </div>
       </main>
 
-      {/* Comments Modal */}
       {commentsModalOpen && selectedVideo && (
         <Comments comments={selectedVideo.commentaires} videoId={selectedVideo.id} />
       )}
