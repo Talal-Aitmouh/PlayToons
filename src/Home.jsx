@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { ChevronLeftIcon, ChevronRightIcon, Play } from "lucide-react";
+import { setselectedPlaylist } from "./redux/actions";
+
 
 function HomePage() {
   const data = useSelector((state) => state.data) || [];
   const [featured, setFeatured] = useState([]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data.length) {
@@ -63,6 +67,11 @@ function HomePage() {
     prevArrow: <CustomPrevArrow />, // Use custom left arrow
     nextArrow: <CustomNextArrow />, // Use custom right arrow
   };
+
+      const handeleplay = (playlistId) => {
+        dispatch(setselectedPlaylist(playlistId));
+        navigate(`/play/${playlistId}`);  // Navigate to Player with playlistId
+      };
   
 
   return (
@@ -85,12 +94,13 @@ function HomePage() {
                     : item.duree}
                 </p>
               </div>
-              <Link
-                to={`/playlist/${item.idPlaylist}`}
+              <button
+                onClick={() => handeleplay(item.idPlaylist)}
+                
                 className="absolute bottom-5 right-6 flex items-center bg-white/20 hover:bg-white/30 transition px-4 py-2 rounded-full text-white"
               >
                 PLAY NOW <Play className="ml-2" />
-              </Link>
+              </button>
             </div>
           ))}
         </Slider>
@@ -101,10 +111,10 @@ function HomePage() {
         <h2 className="text-xl font-semibold my-4 ">Movies Toons</h2>
         <Slider {...carouselSettings}>
           {movies.map((movie) => (
-            <Link key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2">
+            <div key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2" onClick={() => handeleplay(movie.idPlaylist)}>
               <img src={movie.miniature} alt={movie.titre} className="w-full h-48 object-cover rounded" />
               <p className="text-center mt-2">{movie.titre}</p>
-            </Link>
+            </div>
           ))}
         </Slider>
       </section>
@@ -114,10 +124,10 @@ function HomePage() {
         <h2 className="text-xl font-semibold my-4">Series Toons</h2>
         <Slider {...carouselSettings}>
           {series.map((serie) => (
-            <Link key={serie.idPlaylist} to={`/playlist/${serie.idPlaylist}`} className="p-2">
+            <div key={serie.idPlaylist} to={`/playlist/${serie.idPlaylist}`} className="p-2" onClick={() => handeleplay(serie.idPlaylist)}>
               <img src={serie.miniature} alt={serie.titre} className="w-full h-48 object-cover rounded" />
               <p className="text-center mt-2">{serie.titre}</p>
-            </Link>
+            </div>
           ))}
         </Slider>
       </section>
@@ -125,12 +135,12 @@ function HomePage() {
       {/* Last Added List */}
       <section>
         <h2 className="text-xl font-semibold my-4">Last Added</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {latest.map((item) => (
-            <Link key={item.idPlaylist} to={`/playlist/${item.idPlaylist}`} className="p-2">
+            <div key={item.idPlaylist} to={`/playlist/${item.idPlaylist}`} className="p-2">
               <img src={item.miniature} alt={item.titre} className="w-full h-32 object-cover rounded" />
               <p className="text-center mt-2">{item.titre}</p>
-            </Link>
+            </div>
           ))}
         </div>
       </section>
