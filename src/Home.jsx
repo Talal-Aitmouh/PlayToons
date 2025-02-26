@@ -126,8 +126,8 @@ function HomePage() {
             initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                exit={{ opacity: 0, y: -20 }} key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2" onClick={() => handeleplay(movie.idPlaylist)}>
-              <img src={movie.miniature} alt={movie.titre} className="w-48 h-64 object-cover rounded cursor-pointer" />
+                exit={{ opacity: 0, y: -20 }} key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2 mx-auto" onClick={() => handeleplay(movie.idPlaylist)}>
+              <img src={movie.miniature} alt={movie.titre} className="md:w-48 md:h-64 w-full h-36 object-cover rounded cursor-pointer" />
               <p className="text-center mt-2 cursor-pointer">{movie.titre}</p>
             </motion.div>
           ))}
@@ -144,7 +144,7 @@ function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 exit={{ opacity: 0, y: -20 }} key={serie.idPlaylist} to={`/playlist/${serie.idPlaylist}`} className="p-2" onClick={() => handeleplay(serie.idPlaylist)}>
-              <img src={serie.miniature} alt={serie.titre} className="w-52 h-72 object-cover rounded cursor-pointer" />
+              <img src={serie.miniature} alt={serie.titre} className="md:w-48 md:h-64 w-full h-36 object-cover rounded cursor-pointer" />
               <p className="text-center mt-2 cursor-pointer">{serie.titre}</p>
             </motion.div>
           ))}

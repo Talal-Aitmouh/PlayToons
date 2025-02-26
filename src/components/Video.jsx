@@ -111,8 +111,9 @@ function VideoPlayer() {
             {/* Title & Description */}
             
             <div>
+              
               <h2 className="text-2xl font-bold text-white">
-                {videoToShow.titre} {selectedPlaylist?.type === "series" && "- E01"}
+               {selectedPlaylist.titre} -- {videoToShow.titre}
               </h2>
               <p className="text-gray-400 mt-2">{videoToShow.description}</p>
             </div>
@@ -121,14 +122,14 @@ function VideoPlayer() {
             <div className="flex items-center gap-4">
               <button
                 onClick={handleOpenComments}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition"
+                className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition cursor-pointer"
               >
                 <MessageCircle size={20} />
                 <span>{videoToShow.commentaires.length}</span>
               </button>
               <button
                 onClick={handleLike}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition cursor-pointer ${
                   liked ? "bg-[#6B5ECD]/50" : "bg-gray-800 hover:bg-gray-700"
                 }`}
               >
@@ -137,7 +138,7 @@ function VideoPlayer() {
               </button>
               <button
                 onClick={handleDislike}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition cursor-pointer ${
                   disliked ? "bg-[#6B5ECD]/50" : "bg-gray-800 hover:bg-gray-700"
                 }`}
               >
