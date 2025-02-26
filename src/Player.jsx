@@ -7,12 +7,12 @@ import Playlist from "./components/Playlist";
 import Comments from "./components/Comments";
 
 function Player() {
-  const { playlistId } = useParams();  // Get playlistId from URL
+  const { playlistId } = useParams();
   const commentsModalOpen = useSelector((state) => state.commentsModalOpen);
   const selectedVideo = useSelector((state) => state.selectedVideo);
   const playlists = useSelector((state) => state.data);
 
-  // Find the selected playlist
+
   const selectedPlaylist = playlists.find((playlist) => playlist.idPlaylist === parseInt(playlistId));
 
   return (
@@ -21,7 +21,6 @@ function Player() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Video Player Section */}
           <div className="lg:col-span-3">
-          <h2 className="text-3xl font-semibold mb-3">{selectedPlaylist.titre}</h2>
             <VideoPlayer />
           </div>
 
@@ -29,7 +28,7 @@ function Player() {
           <div className="lg:col-span-1 ">
             {selectedPlaylist ? (
               <>
-                
+
                 <VideoList videos={selectedPlaylist.videos} />
                 <Playlist playlist={selectedPlaylist} />
               </>

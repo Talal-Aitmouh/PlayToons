@@ -2,20 +2,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { Play, ThumbsUp, ThumbsDown, MessageCircle } from "lucide-react";
 import { toggleCommentsModal } from "../redux/actions";
+import Comments from "./Comments"; // Make sure to import it
 
 function VideoPlayer() {
   const dispatch = useDispatch();
   const selectedVideo = useSelector((state) => state.selectedVideo);
   const selectedPlaylistId = useSelector((state) => state.selectedPlaylist);
   const playlists = useSelector((state) => state.data);
+  const commentsModalOpen = useSelector((state) => state.commentsModalOpen); // Get modal state
 
-  // Find the selected playlist
   const selectedPlaylist = playlists.find(
     (playlist) => playlist.idPlaylist === selectedPlaylistId
   );
 
-  // If no video is selected, use the first video from the playlist
-  const videoToShow = selectedVideo || (selectedPlaylist?.videos.length ? selectedPlaylist.videos[0] : null);
+  const videoToShow =
+    selectedVideo || (selectedPlaylist?.videos.length ? selectedPlaylist.videos[0] : null);
 
   const handleOpenComments = () => {
     dispatch(toggleCommentsModal(true));
@@ -35,7 +36,7 @@ function VideoPlayer() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative w-full "
+        className="relative w-full"
       >
         <div className="bg-black rounded-lg overflow-hidden relative pb-[56.25%]">
           <iframe
@@ -49,7 +50,7 @@ function VideoPlayer() {
 
       <section>
         <div className="mt-6 space-y-4">
-          <div className="flex items-start justify-between ">
+          <div className="flex items-start justify-between">
             <div>
               <h2 className="text-2xl font-bold text-white">{videoToShow.titre}</h2>
               <p className="text-gray-400 mt-2">{videoToShow.description}</p>
@@ -81,6 +82,11 @@ function VideoPlayer() {
           </div>
         </div>
       </section>
+
+      {/* Render Comments Modal if Open */}
+      {commentsModalOpen && (
+        <Comments comments={videoToShow.commentaires} videoId={videoToShow.id} />
+      )}
     </>
   );
 }
