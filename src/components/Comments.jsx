@@ -13,8 +13,15 @@ function Comments({ comments, videoId }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (newComment.trim()) {
-      dispatch(addComment(videoId, { id: Date.now(), text: newComment }))
-
+      dispatch(
+        addComment(videoId, {
+          id: Date.now(),
+          text: newComment,
+          user: "Talal", 
+          avatar: "/avatar.png", 
+          time: new Date().toISOString(),
+        })
+      )
       setNewComment("")
     }
   }
@@ -39,13 +46,24 @@ function Comments({ comments, videoId }) {
       >
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-xl font-bold text-white">Comments</h3>
-          <button onClick={handleClose} className="text-gray-400 hover:text-white">
+          <button onClick={handleClose} className="text-gray-400 hover:text-white cursor-pointer">
             <X size={24} />
           </button>
         </div>
         <div className="space-y-4 mb-6">
           {comments.map((comment, index) => (
-            <CommentItem key={index} comment={{ id: index, text: comment }} videoId={videoId} isUserComment={false} />
+            <CommentItem
+              key={index}
+              comment={{
+                id: index,
+                text: comment.texte,
+                user: comment.utilisateur,
+                avatar: comment.avatar,
+                time: comment.temps,
+              }}
+              videoId={videoId}
+              isUserComment={false}
+            />
           ))}
           {userComments.map((comment) => (
             <CommentItem key={comment.id} comment={comment} videoId={videoId} isUserComment={true} />
@@ -72,4 +90,3 @@ function Comments({ comments, videoId }) {
 }
 
 export default Comments
-

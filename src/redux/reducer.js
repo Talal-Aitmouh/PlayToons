@@ -1,5 +1,5 @@
 import data from "../data/data.json";
-import { SELECTED_PLAYLIST , SELECTED_VIDEO , TOGGLE_COMMENTS_MODAL , ADD_COMMENT , DELETE_COMMENT , EDIT_COMMENT } from "./actions";
+import { SELECTED_PLAYLIST , SELECTED_VIDEO , TOGGLE_COMMENTS_MODAL , ADD_COMMENT , DELETE_COMMENT , EDIT_COMMENT, LIKE_VIDEO, DISLIKE_VIDEO } from "./actions";
 
 const initialState = {
   selectedPlaylist: "",
@@ -57,7 +57,30 @@ switch (action.type) {
             comment.id === action.payload.commentId ? { ...comment, text: action.payload.newText } : comment
           ),
         },
-        }
+        };
+        case LIKE_VIDEO:
+          return {
+            ...state,
+            selectedVideo: {
+              ...state.selectedVideo,
+              likes: state.selectedVideo.likes + (state.selectedVideo.liked ? -1 : 1),
+              dislikes: state.selectedVideo.liked ? state.selectedVideo.dislikes : state.selectedVideo.dislikes - (state.selectedVideo.disliked ? 1 : 0),
+              liked: !state.selectedVideo.liked,
+              disliked: state.selectedVideo.liked ? false : state.selectedVideo.disliked,
+            },
+          };
+    
+        case DISLIKE_VIDEO:
+          return {
+            ...state,
+            selectedVideo: {
+              ...state.selectedVideo,
+              dislikes: state.selectedVideo.dislikes + (state.selectedVideo.disliked ? -1 : 1),
+              likes: state.selectedVideo.disliked ? state.selectedVideo.likes : state.selectedVideo.likes - (state.selectedVideo.liked ? 1 : 0),
+              disliked: !state.selectedVideo.disliked,
+              liked: state.selectedVideo.disliked ? false : state.selectedVideo.liked,
+            },
+          };
   default:
       return state;
 }

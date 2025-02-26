@@ -4,6 +4,9 @@ export const TOGGLE_COMMENTS_MODAL = "TOGGLE_COMMENTS_MODAL";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 export const EDIT_COMMENT = "EDIT_COMMENT";
+export const LIKE_VIDEO = "LIKE_VIDEO";
+export const DISLIKE_VIDEO = "DISLIKE_VIDEO";
+
 
 export const setselectedPlaylist = (id) => {
   return {
@@ -46,3 +49,13 @@ export const editComment = (videoId, commentId, newText) => {
       payload: { videoId, commentId, newText },
     };
 }
+
+export const likeVideo = (videoId) => ({
+  type: LIKE_VIDEO,
+  payload: videoId,
+});
+
+export const dislikeVideo = (videoId) => ({
+  type: DISLIKE_VIDEO,
+  payload: videoId,
+});

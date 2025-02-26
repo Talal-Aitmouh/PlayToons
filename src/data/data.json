@@ -12,11 +12,41 @@
                 "miniature": "https://media.wired.com/photos/5932661626780e6c04d2b642/191:100/w_1280,c_limit/AdventureTime.jpg",
                 "duree": "12:30",
                 "commentaires": [
-                    "Trop génial !",
-                    "J'adore ce début d'histoire !",
-                    "Les animations sont incroyables.",
-                    "Super épisode, hâte de voir la suite !",
-                    "Personnages très attachants."
+                    {
+                        "texte": "Trop génial !",
+                        "utilisateur": "Lia",
+                        "temps": "2025-02-26T10:00:00Z",
+                        "likes": 15,
+                        "avatar": "https://i.pinimg.com/564x/93/ba/ca/93bacaddaad07056858c07870710fb11.jpg"
+                    },
+                    {
+                        "texte": "J'adore ce début d'histoire !",
+                        "utilisateur": "Romeo",
+                        "temps": "2025-02-26T10:05:00Z",
+                        "likes": 20,
+                        "avatar": "https://i.pinimg.com/550x/fc/d8/01/fcd8011a641cc0f98e0d303bab0c0722.jpg"
+                    },
+                    {
+                        "texte": "Les animations sont incroyables.",
+                        "utilisateur": "Sung Jin",
+                        "temps": "2025-02-26T10:10:00Z",
+                        "likes": 25,
+                        "avatar": "https://assetsio.gnwcdn.com/Solo-Leveling-Arise-Code-Header.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp"
+                    },
+                    {
+                        "texte": "Super épisode, hâte de voir la suite !",
+                        "utilisateur": "Mounir Elwardi",
+                        "temps": "2025-02-26T10:15:00Z",
+                        "likes": 30,
+                        "avatar": "https://www-eintegrity-org.nimbus-cdn.uk/wp-content/uploads/2022/09/healthy-school-child-course.jpg?format=webp&nv=8447d93a-2619-4e22-a32b-e080f5d6b4dd"
+                    },
+                    {
+                        "texte": "Personnages très attachants.",
+                        "utilisateur": "SugarDaddy54",
+                        "temps": "2025-02-26T10:20:00Z",
+                        "likes": 35,
+                        "avatar": "https://media.istockphoto.com/id/1316202270/fr/photo/homme-a%C3%AEn%C3%A9-heureux-regardant-lappareil-photo-%C3%A0-la-maison.jpg?s=612x612&w=0&k=20&c=qjwNqc7VUJO0kTvRMbR8JSV7Lq9jw09TdvJJ59wmr6M="
+                    }
                 ],
                 "likes": 320,
                 "dislikes": 8,
@@ -34,11 +64,41 @@
                 "miniature": "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/fff09eaf-17c3-446b-be32-8a0d47e4ccf1/02be52ef-6eb8-11ef-80b0-12734a5a1b4d?host=wbd-images.prod-vod.h264.io&partner=beamcom",
                 "duree": "14:05",
                 "commentaires": [
-                    "Cette forêt est magnifique !",
-                    "J'adore l'ambiance mystérieuse.",
-                    "Les musiques sont top !",
-                    "Super intrigue, j'ai hâte de voir la suite !",
-                    "Un de mes épisodes préférés !"
+                    {
+                        "texte": "Trop génial !",
+                        "utilisateur": "User1",
+                        "temps": "2025-02-26T10:00:00Z",
+                        "likes": 15,
+                        "avatar": "https://example.com/avatar1.jpg"
+                    },
+                    {
+                        "texte": "J'adore ce début d'histoire !",
+                        "utilisateur": "User2",
+                        "temps": "2025-02-26T10:05:00Z",
+                        "likes": 20,
+                        "avatar": "https://example.com/avatar2.jpg"
+                    },
+                    {
+                        "texte": "Les animations sont incroyables.",
+                        "utilisateur": "User3",
+                        "temps": "2025-02-26T10:10:00Z",
+                        "likes": 25,
+                        "avatar": "https://example.com/avatar3.jpg"
+                    },
+                    {
+                        "texte": "Super épisode, hâte de voir la suite !",
+                        "utilisateur": "User4",
+                        "temps": "2025-02-26T10:15:00Z",
+                        "likes": 30,
+                        "avatar": "https://example.com/avatar4.jpg"
+                    },
+                    {
+                        "texte": "Personnages très attachants.",
+                        "utilisateur": "User5",
+                        "temps": "2025-02-26T10:20:00Z",
+                        "likes": 35,
+                        "avatar": "https://example.com/avatar5.jpg"
+                    }
                 ],
                 "likes": 410,
                 "dislikes": 6,
@@ -72,8 +132,7 @@
                 }
             }
         ]
-    }
-    ,
+    },
     {
         "idPlaylist": 2,
         "titre": "Gumball",
@@ -530,9 +589,4 @@
             }
         ]
     }
-                        
-    
-    
-    
-    
-    ]
+]

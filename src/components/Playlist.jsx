@@ -11,7 +11,8 @@ function Playlist() {
   const [showAll, setShowAll] = useState(false);
 
   function handleOnClick(id) {
-    dispatch(setselectedPlaylist(id))  // Use the correct action creator
+    dispatch(setselectedPlaylist(id));
+    navigate(`/play/${id}`);  // Use the correct action creator
   }
 
   return (
