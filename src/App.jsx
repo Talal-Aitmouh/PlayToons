@@ -9,7 +9,7 @@ import MoviesPage from "./MoviesPage";
 function App() {
   return (
     <Router>
-      <div className="background">
+      <div className="background scrollbar-hidden">
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />

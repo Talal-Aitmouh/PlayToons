@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { ChevronLeftIcon, ChevronRightIcon, Play } from "lucide-react";
 import { setselectedPlaylist } from "./redux/actions";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 function HomePage() {
@@ -68,42 +69,52 @@ function HomePage() {
     nextArrow: <CustomNextArrow />, // Use custom right arrow
   };
 
-      const handeleplay = (playlistId) => {
-        dispatch(setselectedPlaylist(playlistId));
-        navigate(`/play/${playlistId}`);  // Navigate to Player with playlistId
-      };
-  
+  const handeleplay = (playlistId) => {
+    dispatch(setselectedPlaylist(playlistId));
+    navigate(`/play/${playlistId}`);  // Navigate to Player with playlistId
+  };
+
 
   return (
     <div className="min-h-screen text-white px-8" >
       {/* Hero Section */}
       {featured.length > 0 && (
-        <Slider {...heroSettings}>
-          {featured.map((item) => (
-            <div key={item.idPlaylist} className="relative w-full h-60 md:h-80 lg:h-96 rounded-2xl overflow-hidden mt-6">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${item.miniature})` }}
-              ></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-              <div className="absolute bottom-5 left-6 text-white">
-                <h1 className="text-2xl md:text-3xl font-bold">{item.titre}</h1>
-                <p className="text-sm md:text-base opacity-80">
-                  {item.genre === "serie"
-                    ? `${item.videos.length} Episodes`
-                    : item.duree}
-                </p>
-              </div>
-              <button
-                onClick={() => handeleplay(item.idPlaylist)}
-                
-                className="absolute bottom-5 right-6 flex items-center bg-white/20 hover:bg-white/30 transition px-4 py-2 rounded-full text-white"
+        <AnimatePresence initial={true} exitBeforeEnter>
+          <Slider {...heroSettings}>
+            {featured.map((item) => (
+              <motion.div
+                key={item.idPlaylist}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="relative w-full h-60 md:h-80 lg:h-96 rounded-2xl overflow-hidden mt-6"
               >
-                PLAY NOW <Play className="ml-2" />
-              </button>
-            </div>
-          ))}
-        </Slider>
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${item.miniature})` }}
+                ></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+                <div className="absolute bottom-5 left-6 text-white">
+                  <h1 className="text-2xl md:text-3xl font-bold">{item.titre}</h1>
+                  <p className="text-sm md:text-base opacity-80">
+                    {item.genre === "serie"
+                      ? `${item.videos.length} Episodes`
+                      : item.duree}
+                  </p>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="absolute bottom-5 right-6 flex items-center bg-[#6B5ECD]/80 hover:bg-white/30 transition px-4 py-2 rounded-full text-white cursor-pointer"
+                  onClick={() => handeleplay(item.idPlaylist)}
+                >
+                  PLAY NOW <Play className="ml-2" />
+                </motion.button>
+              </motion.div>
+            ))}
+          </Slider>
+        </AnimatePresence>
       )}
 
       {/* Movies Carousel */}
@@ -111,10 +122,14 @@ function HomePage() {
         <h2 className="text-xl font-semibold my-4 ">Movies Toons</h2>
         <Slider {...carouselSettings}>
           {movies.map((movie) => (
-            <div key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2" onClick={() => handeleplay(movie.idPlaylist)}>
-              <img src={movie.miniature} alt={movie.titre} className="w-full h-48 object-cover rounded" />
-              <p className="text-center mt-2">{movie.titre}</p>
-            </div>
+            <motion.div
+            initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                exit={{ opacity: 0, y: -20 }} key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2" onClick={() => handeleplay(movie.idPlaylist)}>
+              <img src={movie.miniature} alt={movie.titre} className="w-full h-48 object-cover rounded cursor-pointer" />
+              <p className="text-center mt-2 cursor-pointer">{movie.titre}</p>
+            </motion.div>
           ))}
         </Slider>
       </section>
@@ -124,16 +139,24 @@ function HomePage() {
         <h2 className="text-xl font-semibold my-4">Series Toons</h2>
         <Slider {...carouselSettings}>
           {series.map((serie) => (
-            <div key={serie.idPlaylist} to={`/playlist/${serie.idPlaylist}`} className="p-2" onClick={() => handeleplay(serie.idPlaylist)}>
-              <img src={serie.miniature} alt={serie.titre} className="w-full h-48 object-cover rounded" />
-              <p className="text-center mt-2">{serie.titre}</p>
-            </div>
+            <motion.div
+            initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                exit={{ opacity: 0, y: -20 }} key={serie.idPlaylist} to={`/playlist/${serie.idPlaylist}`} className="p-2" onClick={() => handeleplay(serie.idPlaylist)}>
+              <img src={serie.miniature} alt={serie.titre} className="w-full h-48 object-cover rounded cursor-pointer" />
+              <p className="text-center mt-2 cursor-pointer">{serie.titre}</p>
+            </motion.div>
           ))}
         </Slider>
       </section>
 
       {/* Last Added List */}
-      <section>
+      <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      exit={{ opacity: 0, y: -20 }}>
         <h2 className="text-xl font-semibold my-4">Last Added</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {latest.map((item) => (
@@ -143,7 +166,7 @@ function HomePage() {
             </div>
           ))}
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }

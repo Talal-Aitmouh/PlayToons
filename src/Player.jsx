@@ -16,8 +16,8 @@ function Player() {
   const selectedPlaylist = playlists.find((playlist) => playlist.idPlaylist === parseInt(playlistId));
 
   return (
-    <div className="min-h-screen text-white px-4" >
-      <main className="container mx-auto py-8 px-4">
+    <div className="min-h-screen text-white px-4 " >
+      <main className="container mx-auto py-8 px-4 ">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Video Player Section */}
           <div className="lg:col-span-3">
@@ -26,7 +26,7 @@ function Player() {
           </div>
 
           {/* Playlist & Video List Section */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 ">
             {selectedPlaylist ? (
               <>
                 

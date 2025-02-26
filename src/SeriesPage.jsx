@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setselectedPlaylist } from "./redux/actions";
+import { motion } from "framer-motion";
 
 function SeriesPage() {
   const dispatch = useDispatch();
@@ -21,7 +22,11 @@ function SeriesPage() {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {seriesData.map((playlist) => (
-          <div
+          <motion.div
+          initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                exit={{ opacity: 0, y: -20 }}
             key={playlist.idPlaylist}
             className="cursor-pointer rounded-lg overflow-hidden hover:bg-gray-700 transition p-3"
             onClick={() => handlePlaylistSelect(playlist.idPlaylist)}
@@ -34,7 +39,7 @@ function SeriesPage() {
               />
             </div>
             <h3 className="text-sm font-medium text-white mt-3">{playlist.titre}</h3>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
