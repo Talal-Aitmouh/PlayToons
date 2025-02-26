@@ -41,7 +41,7 @@ function HomePage() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -88,7 +88,7 @@ function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="relative w-full h-60 md:h-80 lg:h-96 rounded-2xl overflow-hidden mt-6"
+                className="relative w-full h-60 md:h-80 lg:h-96 rounded-2xl overflow-hidden my-6"
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center"
@@ -127,7 +127,7 @@ function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 exit={{ opacity: 0, y: -20 }} key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2" onClick={() => handeleplay(movie.idPlaylist)}>
-              <img src={movie.miniature} alt={movie.titre} className="w-full h-48 object-cover rounded cursor-pointer" />
+              <img src={movie.miniature} alt={movie.titre} className="w-48 h-64 object-cover rounded cursor-pointer" />
               <p className="text-center mt-2 cursor-pointer">{movie.titre}</p>
             </motion.div>
           ))}
@@ -144,7 +144,7 @@ function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 exit={{ opacity: 0, y: -20 }} key={serie.idPlaylist} to={`/playlist/${serie.idPlaylist}`} className="p-2" onClick={() => handeleplay(serie.idPlaylist)}>
-              <img src={serie.miniature} alt={serie.titre} className="w-full h-48 object-cover rounded cursor-pointer" />
+              <img src={serie.miniature} alt={serie.titre} className="w-52 h-72 object-cover rounded cursor-pointer" />
               <p className="text-center mt-2 cursor-pointer">{serie.titre}</p>
             </motion.div>
           ))}
@@ -158,10 +158,10 @@ function HomePage() {
       transition={{ duration: 0.5, delay: 0.2 }}
       exit={{ opacity: 0, y: -20 }}>
         <h2 className="text-xl font-semibold my-4">Last Added</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {latest.map((item) => (
             <div key={item.idPlaylist} to={`/playlist/${item.idPlaylist}`} className="p-2">
-              <img src={item.miniature} alt={item.titre} className="w-full h-32 object-cover rounded" />
+              <img src={item.miniature} alt={item.titre} className="w-full h-48 object-cover rounded" />
               <p className="text-center mt-2">{item.titre}</p>
             </div>
           ))}
@@ -171,11 +171,11 @@ function HomePage() {
   );
 }
 
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 
 const CustomPrevArrow = ({ onClick }) => (
   <div
-    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-xl cursor-pointer z-10"
+    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl cursor-pointer z-10"
     onClick={onClick}
   >
     <ChevronLeftIcon />
@@ -184,7 +184,7 @@ const CustomPrevArrow = ({ onClick }) => (
 
 const CustomNextArrow = ({ onClick }) => (
   <div
-    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-xl cursor-pointer z-10"
+    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl cursor-pointer z-10"
     onClick={onClick}
   >
     <ChevronRightIcon />

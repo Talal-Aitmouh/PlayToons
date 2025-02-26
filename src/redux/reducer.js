@@ -1,4 +1,4 @@
-import {data} from "../data/data";
+import data from "../data/data.json";
 import { SELECTED_PLAYLIST , SELECTED_VIDEO , TOGGLE_COMMENTS_MODAL , ADD_COMMENT , DELETE_COMMENT , EDIT_COMMENT } from "./actions";
 
 const initialState = {
@@ -8,6 +8,7 @@ const initialState = {
   commentsModalOpen: false,
   userComments: {}, // This will store user comments for each video
 }
+console.log(data);
 
 const youtubeReducer = (state = initialState, action) => {
 switch (action.type) {

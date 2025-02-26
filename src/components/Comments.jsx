@@ -34,6 +34,7 @@ function Comments({ comments, videoId }) {
         initial={{ scale: 0.9 }}
         animate={{ scale: 1 }}
         exit={{ scale: 0.9 }}
+        transition={{ duration: 0.2 }}
         className="bg-gray-800 rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto"
       >
         <div className="flex justify-between items-center mb-6">
