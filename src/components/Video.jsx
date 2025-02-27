@@ -65,6 +65,8 @@ function VideoPlayer() {
     }
   };
 
+  console.log(videoToShow);
+
   if (!videoToShow) {
     return (
       <div className="aspect-w-16 aspect-h-9 bg-gray-200 flex items-center justify-center rounded-lg">
@@ -83,75 +85,71 @@ function VideoPlayer() {
         className="relative w-full"
       >
         <div className="bg-black rounded-lg overflow-hidden relative pb-[56.25%]">
-          <iframe
-            src={videoToShow.lien.replace("watch?v=", "embed/")}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute top-0 left-0 w-full h-full"
-          ></iframe>
+        <iframe
+  src={`${videoToShow.lien.replace("watch?v=", "embed/")}`}
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  className="absolute top-0 left-0 w-full h-full"
+  key={videoToShow.lien} // This line will FORCE React to reload the iframe when link changes
+></iframe>
+
+
+
         </div>
       </motion.section>
-
-      {/* Video Details Section */}
       <section>
-        <div className="mt-6 space-y-4">
-        <div className="flex items-center gap-3 text-sm text-gray-400">
-            <img
-              src={videoToShow.auteur.photo}
-              alt={videoToShow.auteur.nom}
-              className="w-10 h-10 rounded-full border border-gray-600"
-            />
-            <span>
-              {videoToShow.auteur.prenom} {videoToShow.auteur.nom}
-            </span>
-            <span>•</span>
-            
-          </div>
-          <div className="flex items-start justify-between">
-            {/* Title & Description */}
-            
-            <div>
-              
-              <h2 className="text-2xl font-bold text-white">
-               {selectedPlaylist.titre} -- {videoToShow.titre}
-              </h2>
-              <p className="text-gray-400 mt-2">{videoToShow.description}</p>
-            </div>
+  <div className="mt-6 space-y-4">
+    <div className="flex flex-col sm:flex-row items-center gap-3 text-sm text-gray-400">
+      <img
+        src={videoToShow.auteur.photo}
+        alt={videoToShow.auteur.nom}
+        className="w-10 h-10 rounded-full border border-gray-600"
+      />
+      <span>
+        {videoToShow.auteur.prenom} {videoToShow.auteur.nom}
+      </span>
+      <span>•</span>
+    </div>
+    <div className="flex flex-col sm:flex-row items-start justify-between">
+      {/* Title & Description */}
+      <div className="flex-1">
+        <h2 className="text-2xl font-bold text-white">
+          {selectedPlaylist.titre} -- {videoToShow.titre}
+        </h2>
+        <p className="text-gray-400 mt-2">{videoToShow.description}</p>
+      </div>
 
-            {/* Action Buttons */}
-            <div className="flex items-center gap-4">
-              <button
-                onClick={handleOpenComments}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition cursor-pointer"
-              >
-                <MessageCircle size={20} />
-                <span>{videoToShow.commentaires.length}</span>
-              </button>
-              <button
-                onClick={handleLike}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition cursor-pointer ${
-                  liked ? "bg-[#6B5ECD]/50" : "bg-gray-800 hover:bg-gray-700"
-                }`}
-              >
-                <ThumbsUp size={20} />
-                <span>{likes}</span>
-              </button>
-              <button
-                onClick={handleDislike}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition cursor-pointer ${
-                  disliked ? "bg-[#6B5ECD]/50" : "bg-gray-800 hover:bg-gray-700"
-                }`}
-              >
-                <ThumbsDown size={20} />
-                <span>{dislikes}</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Author Details */}
-          
-        </div>
-      </section>
+      {/* Action Buttons */}
+      <div className="flex items-center gap-4 mt-4 sm:mt-0">
+        <button
+          onClick={handleOpenComments}
+          className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition cursor-pointer"
+        >
+          <MessageCircle size={20} />
+          <span>{videoToShow.commentaires.length}</span>
+        </button>
+        <button
+          onClick={handleLike}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition cursor-pointer ${
+            liked ? "bg-[#6B5ECD]/50" : "bg-gray-800 hover:bg-gray-700"
+          }`}
+        >
+          <ThumbsUp size={20} />
+          <span>{likes}</span>
+        </button>
+        <button
+          onClick={handleDislike}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition cursor-pointer ${
+            disliked ? "bg-[#6B5ECD]/50" : "bg-gray-800 hover:bg-gray-700"
+          }`}
+        >
+          <ThumbsDown size={20} />
+          <span>{dislikes}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Comments Modal */}
       {commentsModalOpen && <Comments comments={videoToShow.commentaires} videoId={videoToShow.id} />}

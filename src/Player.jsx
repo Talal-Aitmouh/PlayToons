@@ -18,13 +18,12 @@ function Player() {
   return (
     <div className="min-h-screen text-white px-4 " >
       <main className="container mx-auto py-8 px-4 ">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Video Player Section */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
             <VideoPlayer />
           </div>
 
-          {/* Playlist & Video List Section */}
           <div className="lg:col-span-1 ">
             {selectedPlaylist ? (
               <>

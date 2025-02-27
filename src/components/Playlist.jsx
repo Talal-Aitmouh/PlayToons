@@ -26,14 +26,14 @@ function Playlist() {
       <h2 className="text-xl text-white font-bold mb-6">More Toons</h2>
 
       {/* Unified Div for Playlists */}
-      <div className={`mt-4 max-h-96 overflow-y-auto space-y-4 scrollbar-hidden overflow-x-hidden p-4`}>
+      <div className={`mt-4 max-h-96 overflow-y-auto space-y-2 scrollbar-hidden overflow-x-hidden p-4 bg-[#6B5ECD]/20 rounded-lg`}>
         {(showAll ? data : data.slice(0, 2)).map((item, index) => (
           <motion.div
             key={index}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleOnClick(item.idPlaylist)}
-            className={`p-4 rounded-lg cursor-pointer transition-colors flex ${selectedPlaylist === item.idPlaylist
+            className={`p-2 rounded-lg cursor-pointer transition-colors  flex ${selectedPlaylist === item.idPlaylist
               ? "bg-[#5B577B] "
               : ""
               }`}
@@ -41,7 +41,7 @@ function Playlist() {
             <img
               src={item.miniature}
               alt=""
-              className="w-32 h-20 rounded-lg mr-4"
+              className="w-32 h-20 rounded-lg mr-4 object-cover"
             />
             <div>
               <h3 className="font-medium text-white">{item.titre}</h3>
