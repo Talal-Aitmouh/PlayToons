@@ -18,7 +18,6 @@ function SeriesPage() {
 
   return (
     <div className="min-h-screen text-white px-4 py-8">
-      <h1 className="text-2xl font-bold mb-6">All Series</h1>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {seriesData.map((playlist) => (
@@ -31,7 +30,7 @@ function SeriesPage() {
             className="cursor-pointer rounded-lg overflow-hidden hover:bg-gray-700 transition p-3"
             onClick={() => handlePlaylistSelect(playlist.idPlaylist)}
           >
-            <div className="w-full h-36 rounded-lg overflow-hidden">
+            <div className="w-full h-48 rounded-lg overflow-hidden">
               <img
                 className="w-full h-full object-cover"
                 src={playlist.miniature.startsWith("http") ? playlist.miniature : `/img/${playlist.miniature}`}

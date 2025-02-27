@@ -18,7 +18,6 @@ function MoviesPage() {
     
     return (
         <div className="min-h-screen text-white px-4 py-8">
-          <h1 className="text-2xl font-bold mb-6">All Movies</h1>
     
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {moviesData.map((playlist) => (
@@ -33,7 +32,7 @@ function MoviesPage() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="w-full h-36 rounded-lg overflow-hidden">
+                <div className="w-full h-48 rounded-lg overflow-hidden">
                   <img
                     className="w-full h-full object-cover"
                     src={playlist.miniature.startsWith("http") ? playlist.miniature : `/img/${playlist.miniature}`}

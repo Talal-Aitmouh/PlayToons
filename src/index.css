@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .background {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.925), rgba(0, 0, 0, 0.911)), url('/bg.png');
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.877), rgba(0, 0, 0, 0.749)), url('/bg.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
