@@ -12,7 +12,7 @@ function VideoList() {
 
   const selectedData = data.find((item) => item.idPlaylist === selectedPlaylist);
 
-  if (!selectedData) {
+  if (!selectedData || selectedData.genre === "movie") {
     return null;
   }
 
