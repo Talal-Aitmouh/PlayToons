@@ -127,7 +127,7 @@ function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 exit={{ opacity: 0, y: -20 }} key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2 mx-auto" onClick={() => handeleplay(movie.idPlaylist)}>
-              <img src={movie.miniature} alt={movie.titre} className="md:w-48 md:h-64 w-full h-36 object-cover rounded cursor-pointer" />
+              <img src={movie.miniature} alt={movie.titre} className="md:w-72 md:h-36 w-full h-36 object-cover rounded cursor-pointer" />
               <p className="text-center mt-2 cursor-pointer">{movie.titre}</p>
             </motion.div>
           ))}

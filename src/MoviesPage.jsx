@@ -13,7 +13,7 @@ function MoviesPage() {
   
     const handlePlaylistSelect = (playlistId) => {
       dispatch(setselectedPlaylist(playlistId));
-      navigate(`/play/${playlistId}`);  // Navigate to Player with playlistId
+      navigate(`/play/${playlistId}`);  
     };
     
     return (
