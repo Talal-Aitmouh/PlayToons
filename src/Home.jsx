@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { ChevronLeftIcon, ChevronRightIcon, Play } from "lucide-react";
+import { ChevronLeftIcon, ChevronRightIcon, Clock, Play } from "lucide-react";
 import { setselectedPlaylist } from "./redux/actions";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -41,7 +41,7 @@ function HomePage() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -97,11 +97,15 @@ function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
                 <div className="absolute bottom-5 left-6 text-white">
                   <h1 className="text-2xl md:text-3xl font-bold">{item.titre}</h1>
-                  <p className="text-sm md:text-base opacity-80">
-                    {item.genre === "serie"
-                      ? `${item.videos.length} Episodes`
-                      : item.duree}
-                  </p>
+                  <div className="flex items-center gap-4 mt-2">
+                    <Clock />
+                    <p className="text-sm md:text-base opacity-80">
+                      {item.genre === "serie"
+                        ? `${item.videos.length} Episodes`
+                        : item.duree}
+                    </p>
+                  </div>
+
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.1 }}
@@ -123,10 +127,10 @@ function HomePage() {
         <Slider {...carouselSettings}>
           {movies.map((movie) => (
             <motion.div
-            initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                exit={{ opacity: 0, y: -20 }} key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2 mx-auto" onClick={() => handeleplay(movie.idPlaylist)}>
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              exit={{ opacity: 0, y: -20 }} key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2 mx-auto" onClick={() => handeleplay(movie.idPlaylist)}>
               <img src={movie.miniature} alt={movie.titre} className="md:w-72 md:h-36 w-full h-36 object-cover rounded cursor-pointer" />
               <p className="text-center mt-2 cursor-pointer">{movie.titre}</p>
             </motion.div>
@@ -140,11 +144,11 @@ function HomePage() {
         <Slider {...carouselSettings}>
           {series.map((serie) => (
             <motion.div
-            initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                exit={{ opacity: 0, y: -20 }} key={serie.idPlaylist} to={`/playlist/${serie.idPlaylist}`} className="p-2" onClick={() => handeleplay(serie.idPlaylist)}>
-              <img src={serie.miniature} alt={serie.titre} className="md:w-48 md:h-64 w-full h-36 object-cover rounded cursor-pointer" />
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              exit={{ opacity: 0, y: -20 }} key={serie.idPlaylist} to={`/playlist/${serie.idPlaylist}`} className="p-2" onClick={() => handeleplay(serie.idPlaylist)}>
+              <img src={serie.miniature} alt={serie.titre} className="md:w-72 md:h-36 w-full h-36 object-cover rounded cursor-pointer" />
               <p className="text-center mt-2 cursor-pointer">{serie.titre}</p>
             </motion.div>
           ))}
@@ -153,10 +157,10 @@ function HomePage() {
 
       {/* Last Added List */}
       <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      exit={{ opacity: 0, y: -20 }}>
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        exit={{ opacity: 0, y: -20 }}>
         <h2 className="text-xl font-semibold my-4">Last Added</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {latest.map((item) => (
