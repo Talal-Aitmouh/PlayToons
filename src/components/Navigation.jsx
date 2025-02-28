@@ -10,7 +10,7 @@ function Navigation() {
       {/* Logo */}
       <div className="flex items-center">
         <Link to="/">
-          <img src="/logo.png" alt="Logo" className="w-auto h-12" />
+          <img src="/logo.png" alt="Logo" className="w-auto h-20" />
         </Link>
       </div>
 

@@ -76,7 +76,7 @@ function HomePage() {
 
 
   return (
-    <div className="min-h-screen text-white px-8" >
+    <div className="min-h-screen text-white px-4 md:px-8" >
       {/* Hero Section */}
       {featured.length > 0 && (
         <AnimatePresence initial={true} exitBeforeEnter>
