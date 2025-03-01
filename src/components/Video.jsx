@@ -84,20 +84,20 @@ function VideoPlayer() {
         transition={{ duration: 0.5 }}
         className="relative w-full"
       >
-        <div className="bg-black rounded-lg overflow-hidden relative pb-[56.25%]">
+        <div className="bg-gray-900 rounded-xl p-4 shadow-lg relative pb-[56.25%] border-3 border-[#6B5ECD]">
           <iframe
             src={`${videoToShow.lien.replace("watch?v=", "embed/").split("&")[0]}?`}
-            allow="accelerometer; autoplay=1;rel=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className="absolute top-0 left-0 w-full h-full"
+            className="absolute top-0 left-0 w-full h-full rounded-lg"
             key={videoToShow.lien}
           />
-
         </div>
+
       </motion.section>
       <section>
         <div className="mt-6 space-y-4">
-          
+
           <div className="flex flex-col sm:flex-row items-start justify-between">
             {/* Title & Description */}
             <div className="flex-1">
