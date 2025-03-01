@@ -6,6 +6,14 @@ export const DELETE_COMMENT = "DELETE_COMMENT";
 export const EDIT_COMMENT = "EDIT_COMMENT";
 export const LIKE_VIDEO = "LIKE_VIDEO";
 export const DISLIKE_VIDEO = "DISLIKE_VIDEO";
+export const UPDATE_SEARCH_QUERY = "UPDATE_SEARCH_QUERY";
+
+
+
+export const updateSearchQuery = (query) => ({
+  type: UPDATE_SEARCH_QUERY,
+  payload: query,
+});
 
 
 export const setselectedPlaylist = (id) => {
