@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Play, ThumbsUp, ThumbsDown, MessageCircle } from "lucide-react";
 import { toggleCommentsModal } from "../redux/actions";
-import Comments from "./Comments"; // Import Comments component
+import Comments from "./Comments";
 
 function VideoPlayer() {
   const dispatch = useDispatch();
@@ -65,8 +65,6 @@ function VideoPlayer() {
     }
   };
 
-  console.log(videoToShow);
-
   if (!videoToShow) {
     return (
       <div className="aspect-w-16 aspect-h-9 bg-gray-200 flex items-center justify-center rounded-lg">
@@ -85,28 +83,23 @@ function VideoPlayer() {
       >
         <div className="bg-gray-900 rounded-xl p-4 shadow-lg relative pb-[56.25%] border-3 border-[#6B5ECD]">
           <iframe
-            src={`${videoToShow.lien.replace("watch?v=", "embed/").split("&")[0]}?`}
-            allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            src={`${videoToShow.lien.replace("watch?v=", "embed/").split("&")[0]}?autoplay=1&controls=0&rel=0&modestbranding=1&showinfo=1`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="absolute top-0 left-0 w-full h-full rounded-lg"
             key={videoToShow.lien}
           />
         </div>
-
       </motion.section>
       <section>
         <div className="mt-6 space-y-4">
-
           <div className="flex flex-col sm:flex-row items-start justify-between">
-            {/* Title & Description */}
             <div className="flex-1">
               <h2 className="text-2xl font-bold text-white">
                 {selectedPlaylist.titre} -- {videoToShow.titre}
               </h2>
               <p className="text-gray-400 mt-2">{videoToShow.description}</p>
             </div>
-
-            {/* Action Buttons */}
             <div className="flex items-center gap-4 mt-4 sm:mt-0">
               <button
                 onClick={handleOpenComments}
@@ -117,16 +110,14 @@ function VideoPlayer() {
               </button>
               <button
                 onClick={handleLike}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition cursor-pointer ${liked ? "bg-[#6B5ECD]/50" : "bg-gray-800 hover:bg-gray-700"
-                  }`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition cursor-pointer ${liked ? "bg-[#6B5ECD]/50" : "bg-gray-800 hover:bg-gray-700"}`}
               >
                 <ThumbsUp size={20} />
                 <span>{likes}</span>
               </button>
               <button
                 onClick={handleDislike}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition cursor-pointer ${disliked ? "bg-[#6B5ECD]/50" : "bg-gray-800 hover:bg-gray-700"
-                  }`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition cursor-pointer ${disliked ? "bg-[#6B5ECD]/50" : "bg-gray-800 hover:bg-gray-700"}`}
               >
                 <ThumbsDown size={20} />
                 <span>{dislikes}</span>
@@ -146,8 +137,6 @@ function VideoPlayer() {
           </div>
         </div>
       </section>
-
-      {/* Comments Modal */}
       {commentsModalOpen && <Comments comments={videoToShow.commentaires} videoId={videoToShow.id} />}
     </>
   );

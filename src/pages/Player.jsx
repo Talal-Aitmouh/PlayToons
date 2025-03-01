@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import VideoPlayer from "./components/Video";
-import VideoList from "./components/ListVideo";
-import Playlist from "./components/Playlist";
-import Comments from "./components/Comments";
+import VideoPlayer from "../components/Video";
+import VideoList from "../components/ListVideo";
+import Playlist from "../components/Playlist";
+import Comments from "../components/Comments";
 
 function Player() {
   const { playlistId } = useParams();

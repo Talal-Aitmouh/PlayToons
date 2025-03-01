@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { ChevronLeftIcon, ChevronRightIcon, Clock, Play } from "lucide-react";
-import { setselectedPlaylist } from "./redux/actions";
+import { setselectedPlaylist } from "../redux/actions";
 import { motion, AnimatePresence } from "framer-motion";
 
 
