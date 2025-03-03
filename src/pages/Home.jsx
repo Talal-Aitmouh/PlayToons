@@ -14,6 +14,8 @@ function HomePage() {
   const [featured, setFeatured] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [filter, setFilter] = useState("all");
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     if (data.length) {
@@ -21,6 +23,14 @@ function HomePage() {
       setFeatured(randomFeatured);
     }
   }, [data]);
+
+  useEffect(() => {
+    if (filter === "all") {
+      setFilteredData(data);
+    } else {
+      setFilteredData(data.filter((item) => item.genre === filter));
+    }
+  }, [filter, data]);
 
   const movies = data.filter((item) => item.genre === "movie");
   const series = data.filter((item) => item.genre === "serie");
@@ -46,27 +56,29 @@ function HomePage() {
     autoplay: true,
     autoplaySpeed: 3000,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
-    prevArrow: <CustomPrevArrow />, // Use custom left arrow
-    nextArrow: <CustomNextArrow />, // Use custom right arrow
+    prevArrow: <CustomPrevArrow />, // Custom left arrow
+    nextArrow: <CustomNextArrow />, // Custom right arrow
+  };
+
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  // Get current playlists for pagination
+  const paginatedPlaylists = [...data].reverse().slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
   };
 
   const handeleplay = (playlistId) => {
@@ -76,7 +88,7 @@ function HomePage() {
 
 
   return (
-    <div className="min-h-screen text-white px-4 md:px-8" >
+    <div className="min-h-screen text-white px-4 md:px-8 pb-4" >
       {/* Hero Section */}
       {featured.length > 0 && (
         <AnimatePresence initial={true} exitBeforeEnter>
@@ -121,56 +133,129 @@ function HomePage() {
         </AnimatePresence>
       )}
 
-      {/* Movies Carousel */}
       <section>
-        <h2 className="text-xl font-semibold my-4 ">Movies Toons</h2>
+        <div className="flex justify-between items-center my-4">
+          <h2 className="text-xl font-semibold flex items-center">
+            New At <img src="/logo.png" alt="PlayToons" className="h-12 ml-2" />
+          </h2>
+          <select
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="bg-purple-600 text-white px-12 py-2 rounded-lg"
+          >
+            <option value="all">All</option>
+            <option value="movie">Movies</option>
+            <option value="serie">Series</option>
+          </select>
+        </div>
         <Slider {...carouselSettings}>
-          {movies.map((movie) => (
+          {filteredData.map((item) => (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              exit={{ opacity: 0, y: -20 }} key={movie.idPlaylist} to={`/playlist/${movie.idPlaylist}`} className="p-2 mx-auto" onClick={() => handeleplay(movie.idPlaylist)}>
-              <img src={movie.miniature} alt={movie.titre} className="md:w-72 md:h-36 w-full h-36 object-cover rounded cursor-pointer" />
-              <p className="text-center mt-2 cursor-pointer">{movie.titre}</p>
+              exit={{ opacity: 0, y: -20 }}
+              key={item.idPlaylist}
+              className="relative p-2 mx-auto cursor-pointer"
+              onClick={() => handeleplay(item.idPlaylist)}
+            >
+              <div className="relative group">
+                {/* Genre Ribbon */}
+                <span
+                  className="absolute bottom-0 left-0 px-3 py-1 text-xs font-bold text-white  z-10"
+                  style={{ backgroundColor: item.genre === "movie" ? "#6B5ECD" : "#E50914" }}
+                >
+                  {item.genre === "movie" ? "Movie" : "Serie"}
+                </span>
+                <div className="relative">
+                  <img
+                    src={item.miniature}
+                    alt={item.titre}
+                    className="md:w-72 md:h-36 w-full h-36 object-cover rounded "
+                  />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                      <Play className="h-6 w-6 text-white" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p className="text-center mt-2">{item.titre}</p>
             </motion.div>
           ))}
         </Slider>
       </section>
 
-      {/* Series Carousel */}
-      <section>
-        <h2 className="text-xl font-semibold my-4">Series Toons</h2>
-        <Slider {...carouselSettings}>
-          {series.map((serie) => (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              exit={{ opacity: 0, y: -20 }} key={serie.idPlaylist} to={`/playlist/${serie.idPlaylist}`} className="p-2" onClick={() => handeleplay(serie.idPlaylist)}>
-              <img src={serie.miniature} alt={serie.titre} className="md:w-72 md:h-36 w-full h-36 object-cover rounded cursor-pointer" />
-              <p className="text-center mt-2 cursor-pointer">{serie.titre}</p>
-            </motion.div>
-          ))}
-        </Slider>
-      </section>
-
-      {/* Last Added List */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        exit={{ opacity: 0, y: -20 }}>
+        exit={{ opacity: 0, y: -20 }}
+      >
         <h2 className="text-xl font-semibold my-4">Last Added</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {latest.map((item) => (
-            <div key={item.idPlaylist} to={`/playlist/${item.idPlaylist}`} className="p-2">
-              <img src={item.miniature} alt={item.titre} className="w-full h-48 object-cover rounded" />
-              <p className="text-center mt-2">{item.titre}</p>
-            </div>
-          ))}
-        </div>
+
+        {/* Animated Playlist Grid */}
+        <AnimatePresence mode="wait">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" >
+            {paginatedPlaylists.map((item) => (
+              <motion.div
+                key={item.idPlaylist}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="p-2 cursor-pointer"
+                onClick={() => handeleplay(item.idPlaylist)}
+              >
+                <img
+                  src={item.miniature}
+                  alt={item.titre}
+                  className="w-full h-48 object-cover rounded"
+                />
+                <p className="text-center mt-2">{item.titre}</p>
+              </motion.div>
+            ))}
+          </div>
+        </AnimatePresence>
+
+        {/* Pagination Controls with Motion */}
+        <motion.div
+          className="flex justify-center mt-6 space-x-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <button
+            className={`px-4 py-2 rounded ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-700"
+              }`}
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+
+          <motion.span
+            key={currentPage} // This triggers re-animation when page changes
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className="text-white px-4 py-2"
+          >
+            Page {currentPage} of {totalPages}
+          </motion.span>
+
+          <button
+            className={`px-4 py-2 rounded ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-700"
+              }`}
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </motion.div>
       </motion.section>
+
+
     </div>
   );
 }
