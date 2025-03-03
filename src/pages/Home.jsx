@@ -60,8 +60,8 @@ function HomePage() {
       { breakpoint: 768, settings: { slidesToShow: 2 } },
       { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
-    prevArrow: <CustomPrevArrow />, // Custom left arrow
-    nextArrow: <CustomNextArrow />, // Custom right arrow
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />, 
   };
 
 
@@ -134,20 +134,21 @@ function HomePage() {
       )}
 
       <section>
-        <div className="flex justify-between items-center my-4">
+        <div className="flex md:flex-row flex-col justify-start md:justify-between md:items-center my-4 px-12 ">
           <h2 className="text-xl font-semibold flex items-center">
             New At <img src="/logo.png" alt="PlayToons" className="h-12 ml-2" />
           </h2>
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="bg-purple-600 text-white px-12 py-2 rounded-lg"
+            className="bg-purple-600 text-white text-start md:px-12 px-4 py-2 rounded-md"
           >
             <option value="all">All</option>
             <option value="movie">Movies</option>
             <option value="serie">Series</option>
           </select>
         </div>
+        <div className="relative lg:px-12 px-0">
         <Slider {...carouselSettings}>
           {filteredData.map((item) => (
             <motion.div
@@ -162,7 +163,7 @@ function HomePage() {
               <div className="relative group">
                 {/* Genre Ribbon */}
                 <span
-                  className="absolute bottom-0 left-0 px-3 py-1 text-xs font-bold text-white  z-10"
+                  className="absolute bottom-0 left-0 px-3 py-1 text-lg opacity-90 font-bold text-white  z-10"
                   style={{ backgroundColor: item.genre === "movie" ? "#6B5ECD" : "#E50914" }}
                 >
                   {item.genre === "movie" ? "Movie" : "Serie"}
@@ -184,6 +185,7 @@ function HomePage() {
             </motion.div>
           ))}
         </Slider>
+        </div>
       </section>
 
       <motion.section
@@ -226,7 +228,7 @@ function HomePage() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <button
-            className={`px-4 py-2 rounded ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-700"
+            className={`px-4 py-2  rounded ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "bg-purple-600 cursor-pointer hover:bg-purple-700"
               }`}
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
@@ -245,7 +247,7 @@ function HomePage() {
           </motion.span>
 
           <button
-            className={`px-4 py-2 rounded ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-700"
+            className={`px-4 py-2 rounded ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "bg-purple-600 cursor-pointer hover:bg-purple-700"
               }`}
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
@@ -264,7 +266,7 @@ function HomePage() {
 
 const CustomPrevArrow = ({ onClick }) => (
   <div
-    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl cursor-pointer z-10"
+    className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-3xl cursor-pointer z-10"
     onClick={onClick}
   >
     <ChevronLeftIcon />

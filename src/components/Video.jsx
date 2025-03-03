@@ -67,9 +67,10 @@ function VideoPlayer() {
 
   if (!videoToShow) {
     return (
-      <div className="aspect-w-16 aspect-h-9 bg-gray-200 flex items-center justify-center rounded-lg">
-        <Play size={64} className="text-gray-400" />
-      </div>
+      <div className="aspect-w-16 aspect-h-9 bg-[#6B5ECD] flex items-center justify-center rounded-xl shadow-lg">
+      <Play size={64} className="text-white opacity-80 hover:opacity-100 transition duration-300" />
+    </div>
+    
     );
   }
 
