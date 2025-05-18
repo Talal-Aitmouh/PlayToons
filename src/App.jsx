@@ -11,13 +11,17 @@ function App() {
     <Router>
       <div className="background scrollbar-hidden">
         <Navigation />
+        <div className="min-h-screen text-white px-4 md:px-8 pt-14">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/play/:playlistId" element={<Player />} />
           <Route path="/series" element={<SeriesPage />} />
           <Route path="/movies" element={<MoviesPage />} />
 
+          
+
         </Routes>
+        </div>
       </div>
     </Router>
   );
