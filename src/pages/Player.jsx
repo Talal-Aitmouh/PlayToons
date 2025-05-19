@@ -15,7 +15,7 @@ function Player() {
   const selectedPlaylist = playlists.find((playlist) => playlist.idPlaylist === Number.parseInt(playlistId))
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
+    <div className="min-h-screen text-white">
       <main className="container mx-auto py-8 px-4 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Video Player Section */}
