@@ -235,7 +235,6 @@ function SeriesPage() {
           </motion.div>
         )}
 
-        /* List View */
         {viewMode === "list" && (
           <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-4">
             {seriesData.map((series) => (
