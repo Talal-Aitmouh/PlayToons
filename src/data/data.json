@@ -588,6 +588,7 @@
         "genre": "movie",
         
         "duree": "22:00",
+        "rate": "4.0",
         "videos": [
             {
                 "id": 701,
@@ -649,6 +650,7 @@
         "miniature": "https://www.lejdd.fr/lmnr/var/jdd/public/media/image/2022/07/21/17/comment-toy-story-a-revolutionne-le-cinema-d-animation.jpg?VersionId=K7dq.ECj8_q_xzGLmkMJKveayPHkdcSW",
         "genre": "movie",
         "duree": "1:21:00",
+        "rate": "4.0",
         "videos": [
             {
                 "id": 702,
@@ -696,6 +698,7 @@
         "miniature": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/920954E93FA8656169D52FCC44420DF0254CD22B1940D9134BC0D7616292BEDA/scale?width=506&aspectRatio=2.00&format=webp",
         "genre": "movie",
         "duree": "1:15:00",
+        "rate": "5.0",
         "videos": [
             {
                 "id": 703,
@@ -730,6 +733,7 @@
         "miniature": "https://m1.quebecormedia.com/emp/emp/shrek.0e29f919d-0890-4c6a-aa8e-908f615748b7_ORIGINAL.jpg?impolicy=crop-resize&x=0&y=62&w=1200&h=675&width=1200",
         "genre": "movie",
         "duree": "1:30:00",
+        "rate": "2.3",
         "videos": [
             {
                 "id": 704,
@@ -770,6 +774,7 @@
         "miniature": "https://www.firststage.org/get/files/image/galleries/Nemo-Home.jpg",
         "genre": "movie",
         "duree": "1:00:00",
+        "rate": "4.1",
         "videos": [
             {
                 "id": 705,
@@ -811,6 +816,7 @@
         "miniature": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/BFFC561B156453B0B7F4A76E05313E4E1D7F910A3287A61D77FA85C3D5F4847B/scale?width=1200&aspectRatio=1.78&format=webp",
         "genre": "movie",
         "duree": "1:02:00",
+        "rate": "5.0",
         "videos": [
             {
                 "id": 706,
@@ -858,6 +864,7 @@
         "miniature": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/7ABE4CDAC4A8E0314618225C03A65DF6056EF2770E90E0AFEB3C76020A59B1C4/scale?width=1200&aspectRatio=1.78&format=webp",
         "genre": "movie",
         "duree": "1:08:00",
+        "rate": "3.4",
         "videos": [
             {
                 "id": 707,
@@ -906,6 +913,7 @@
         "miniature": "https://lumiere-a.akamaihd.net/v1/images/image_6da7b6e8.jpeg?region=0,0,2048,878",
         "genre": "movie",
         "duree": "1:05:00",
+        "rate": "4.3",
         "videos": [
             {
                 "id": 708,

@@ -172,7 +172,7 @@ function MoviesPage() {
                   <h3 className="font-medium text-lg line-clamp-1">{movie.titre}</h3>
                   <div className="flex items-center bg-purple-600/20 px-2 py-0.5 rounded text-purple-300 text-xs">
                     <Star size={12} className="mr-1 text-yellow-400" fill="currentColor" />
-                    {(Math.random() * 2 + 3).toFixed(1)}
+                    {movie.rate  || "4.5"}
                   </div>
                 </div>
 
